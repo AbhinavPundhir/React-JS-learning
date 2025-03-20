@@ -1,7 +1,8 @@
 function customRender(reactElement, container){
     const domElement = document.createElement(reactElement.type)
-    domElement.innerHTML = reactElement.props.value
-    domElement.setAttribute('href', reactElement.target)
+    domElement.innerHTML = reactElement.value
+    domElement.setAttribute('href', reactElement.props.href)
+    domElement.setAttribute('target', reactElement.props.target)
 
     container.appendChild(domElement)
 }
@@ -9,12 +10,13 @@ function customRender(reactElement, container){
 const reactElement = {
     type: 'a',
     props: {
-        value: "Click here to go to github"
+        href: 'https//github.com',
+        target: '_blank'
     },
-    target: 'https//github.com'
+    value: " Hello to github"
 }
 
-const modRoot = document.querySelector('root')
+const modRoot = document.querySelector('#root')
 
 customRender(reactElement, modRoot) //our custom rendering method in our own react library.
 
